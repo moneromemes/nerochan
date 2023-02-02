@@ -17,7 +17,7 @@ Launch a new VPS and point a domain of your choice to it. I'll refer to said dom
 apt update
 
 # Install web server, tools, and system libraries
-apt install nginx python3-venv certbot python3-certbot-nginx docker.io docker-compose make
+apt install nginx python3-venv certbot python3-certbot-nginx docker.io docker-compose make sqlite3
 
 # Note - If you don't want to run Docker, you can just install/run monero-wallet-rpc and background it instead
 
@@ -82,7 +82,7 @@ make prod
 # Register new user on the site
 
 # Make user an admin via CLI
-./manage.py add_admin $HANDLE
+./manage.sh add_admin $HANDLE
 ```
 
 If everything worked as intended, you should have Gunicorn running in the background on port 4000 as `nerochan` user, with Nginx config accepting requests for your $DOMAIN, proxying requests to Gunicorn. You'll have a SQLite database keeping all the relational app data somewhere you've defined (default is app repo ./data/sqlite.db), and a filesystem for future uploads from your artists. You'll have an administrator within the application's /admin interface for managing the system.
@@ -90,7 +90,7 @@ If everything worked as intended, you should have Gunicorn running in the backgr
 To process tips, run the following (setup a cron task):
 
 ```
-./manage.py verify_tips
+./manage.sh verify_tips
 ```
 
 
