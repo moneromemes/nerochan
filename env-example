@@ -8,4 +8,4 @@ XMR_WALLET_NETWORK=stagenet
 
 SITE_NAME=nerochan
 SECRET_KEY=xxxxxxxxxxxxxxxxxxx
-SERVER_NAME=127.0.0.1:5000
+SERVER_NAME=nerochan-test.suchwow.xyz
